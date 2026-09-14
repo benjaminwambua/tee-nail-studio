@@ -1,0 +1,1786 @@
+ :root{
+
+    --black:#101010;
+    --black-soft:#181615;
+    --cream:#fffaf8;
+    --blush:#f8e4e1;
+
+    --pink:#f6c9c8;
+    --rose:#d99b99;
+    --gold:#c8a66a;
+
+    --text:#171515;
+    --muted:#6f6663;
+
+    --green:#19a95b;
+
+    --serif:"Cormorant Garamond",Georgia,serif;
+    --script:"Parisienne",cursive;
+    --sans:"DM Sans",Arial,sans-serif;
+}
+
+
+/* ========================================
+   RESET
+======================================== */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:var(--sans);
+    color:var(--text);
+    background:var(--cream);
+    line-height:1.5;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button,
+input,
+select,
+textarea{
+    font:inherit;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.site-header{
+    height:76px;
+
+    background:rgba(10,10,10,.97);
+
+    color:#fff;
+
+    display:flex;
+    align-items:center;
+
+    gap:38px;
+
+    padding:0 7%;
+
+    position:sticky;
+    top:0;
+
+    z-index:20;
+}
+
+
+/* BRAND */
+
+.brand{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    line-height:1;
+}
+
+.brand-mark{
+    font-family:var(--serif);
+
+    font-size:30px;
+
+    letter-spacing:5px;
+}
+
+.brand-sub{
+    font-size:9px;
+
+    letter-spacing:4px;
+
+    margin-top:5px;
+
+    color:#f2d9d7;
+}
+
+
+/* NAVIGATION */
+
+.nav{
+    display:flex;
+
+    gap:30px;
+
+    margin:auto;
+
+    font-size:13px;
+}
+
+.nav a{
+    padding:28px 0;
+
+    opacity:.9;
+
+    position:relative;
+}
+
+
+/* ACTIVE / HOVER LINE */
+
+.nav a.active::after,
+.nav a:hover::after{
+    content:"";
+
+    height:2px;
+
+    background:var(--pink);
+
+    position:absolute;
+
+    left:0;
+    right:0;
+
+    bottom:18px;
+}
+
+
+/* ========================================
+   BUTTONS
+======================================== */
+
+.button{
+    border:0;
+
+    border-radius:999px;
+
+    padding:13px 22px;
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:12px;
+
+    font-weight:700;
+
+    font-size:13px;
+
+    cursor:pointer;
+
+    transition:
+        .25s transform,
+        .25s box-shadow;
+}
+
+.button:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 8px 24px
+        rgba(0,0,0,.12);
+}
+
+.button-light{
+    background:#ffe1df;
+    color:#171313;
+}
+
+.button-pink{
+    background:var(--pink);
+    color:#181313;
+}
+
+.button-green{
+    background:var(--green);
+    color:#fff;
+}
+
+
+/* MOBILE MENU */
+
+.menu-toggle{
+    display:none;
+
+    background:none;
+
+    color:white;
+
+    border:0;
+
+    font-size:24px;
+
+    cursor:pointer;
+}
+
+
+/* ========================================
+   HERO / HOME
+======================================== */
+
+.hero{
+    min-height:620px;
+
+    position:relative;
+
+    background:#120f0e;
+
+    display:flex;
+
+    align-items:center;
+
+    overflow:hidden;
+}
+
+
+/* HERO IMAGE */
+
+.hero-image{
+    position:absolute;
+
+    top:0;
+    right:0;
+    bottom:0;
+
+    width:55%;
+
+    overflow:hidden;
+}
+
+.hero-image img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+
+/* HERO IMAGE OVERLAY */
+
+.hero-image::before{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:1;
+
+    background:
+        linear-gradient(
+            90deg,
+            #120f0e 0%,
+            rgba(18,15,14,.85) 18%,
+            rgba(18,15,14,.35) 65%,
+            rgba(18,15,14,.08) 100%
+        );
+}
+
+
+/* HERO CONTENT */
+
+.hero-content{
+    position:relative;
+
+    z-index:2;
+
+    color:#fff;
+
+    margin-left:9%;
+
+    max-width:540px;
+}
+
+
+/* EYEBROW */
+
+.eyebrow{
+    font-size:11px;
+
+    letter-spacing:4px;
+
+    font-weight:700;
+
+    color:#efc2bf;
+
+    margin-bottom:14px;
+}
+
+.eyebrow.dark{
+    color:#765e5a;
+}
+
+
+/* HERO TITLE */
+
+.hero h1{
+    font-family:var(--serif);
+
+    font-size:68px;
+
+    line-height:.86;
+
+    font-weight:600;
+}
+
+.hero h1 span{
+    font-family:var(--script);
+
+    font-size:78px;
+
+    color:#f3b8b5;
+
+    font-weight:400;
+}
+
+
+/* HERO DESCRIPTION */
+
+.hero-description{
+    max-width:430px;
+
+    margin:25px 0 28px;
+
+    font-size:16px;
+
+    color:#f1e9e7;
+}
+
+
+/* HERO BUTTON */
+
+.hero-button{
+    background:#ffe1df;
+
+    color:#171313;
+
+    border-radius:999px;
+
+    padding:14px 22px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    transition:.25s ease;
+}
+
+.hero-button:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 8px 24px
+        rgba(0,0,0,.18);
+}
+
+.calendar-icon{
+    font-size:14px;
+}
+
+.arrow{
+    font-size:18px;
+
+    line-height:1;
+}
+
+
+/* HERO SIDE TEXT */
+
+.hero-side-text{
+    position:absolute;
+
+    z-index:2;
+
+    right:7%;
+
+    top:42%;
+
+    transform:rotate(-5deg);
+
+    font-family:var(--script);
+
+    color:#f2bdb9;
+
+    font-size:38px;
+
+    line-height:1.05;
+
+    text-align:center;
+}
+
+.hero-side-text span{
+    display:block;
+
+    font-size:28px;
+
+    margin-top:4px;
+}
+
+
+/* ========================================
+   GENERAL SECTIONS
+======================================== */
+
+.section{
+    padding:82px 7%;
+}
+
+
+/* SECTION HEADING */
+
+.section-heading{
+    text-align:center;
+
+    margin-bottom:45px;
+}
+
+.section-heading h2,
+.booking-form-wrap h2,
+.contact h2{
+    font:
+        600 43px/1
+        var(--serif);
+}
+
+.heading-line{
+    display:block;
+
+    width:55px;
+
+    height:1px;
+
+    background:#806c67;
+
+    margin:20px auto 0;
+}
+
+.heading-line.light{
+    background:#f4d8d5;
+}
+
+
+/* ========================================
+   SERVICES
+======================================== */
+
+.services{
+    background:#fff;
+}
+
+.service-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(7,1fr);
+
+    gap:16px;
+
+    max-width:1180px;
+
+    margin:auto;
+}
+
+.service-card{
+    text-align:center;
+
+    padding:8px 4px;
+}
+
+.service-icon{
+    width:72px;
+    height:72px;
+
+    border-radius:50%;
+
+    background:#f9dfdc;
+
+    display:grid;
+
+    place-items:center;
+
+    margin:0 auto 15px;
+
+    font-size:30px;
+
+    font-family:var(--serif);
+}
+
+.service-card h3{
+    font-size:14px;
+
+    line-height:1.25;
+
+    font-weight:500;
+}
+
+
+/* ========================================
+   GALLERY
+======================================== */
+
+.gallery{
+    background:#faecea;
+}
+
+.gallery-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(6,1fr);
+
+    gap:9px;
+
+    max-width:1220px;
+
+    margin:auto;
+}
+
+.gallery-item{
+    border:0;
+
+    overflow:hidden;
+
+    aspect-ratio:.78;
+
+    cursor:pointer;
+
+    padding:0;
+
+    background:none;
+
+    border-radius:5px;
+}
+
+.gallery-item img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:.45s transform;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.06);
+}
+
+.gallery-note{
+    text-align:center;
+
+    color:#7a6b68;
+
+    font-size:12px;
+
+    margin-top:18px;
+}
+
+
+/* ========================================
+   WHY TEE
+======================================== */
+
+.why{
+    position:relative;
+
+    min-height:390px;
+
+    overflow:hidden;
+
+    color:#fff;
+
+    background:#111;
+}
+
+
+/* NO BACKGROUND PHOTO */
+
+.why-bg{
+    position:absolute;
+
+    inset:0;
+
+    background:#111;
+}
+
+
+/* WHY CONTENT */
+
+.why-inner{
+    position:relative;
+
+    min-height:390px;
+
+    padding:80px 9%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+}
+
+.why-copy{
+    text-align:center;
+
+    width:70%;
+}
+
+.why-copy h2{
+    font:
+        600 45px/1
+        var(--serif);
+}
+
+
+/* WHY GRID */
+
+.why-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    margin-top:48px;
+}
+
+.why-grid > div{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    padding:0 20px;
+
+    border-right:
+        1px solid
+        rgba(255,255,255,.45);
+}
+
+.why-grid > div:last-child{
+    border:0;
+}
+
+.why-icon{
+    font-size:32px;
+
+    color:#f2c5c1;
+}
+
+.why-grid strong{
+    font-size:13px;
+
+    font-weight:500;
+}
+
+
+/* WHY SCRIPT */
+
+.why-script{
+    font-family:var(--script);
+
+    color:#f2bdb9;
+
+    font-size:38px;
+
+    line-height:1.05;
+
+    width:220px;
+
+    text-align:center;
+
+    transform:rotate(-5deg);
+}
+
+.why-script span{
+    display:block;
+
+    font-size:28px;
+}
+
+
+/* ========================================
+   BOOKING
+======================================== */
+
+ .booking{
+    display:grid;
+
+    grid-template-columns:
+        38% 62%;
+
+    gap:40px;
+
+    background:#fff;
+
+    max-width:1300px;
+
+    margin:auto;
+
+    padding-left:4%;
+    padding-right:4%;
+
+    align-items:center;
+}
+
+
+ /* ========================================
+   BOOKING PHOTO
+======================================== */
+
+.booking-photo{
+    width:100%;
+    aspect-ratio:3 / 2;
+
+    overflow:hidden;
+
+    border-radius:5px;
+
+    background:#f8e4e1;
+
+    margin-top:50px;
+}
+
+.booking-photo img{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+    object-position:center center;
+
+    display:block;
+}
+
+
+/* BOOKING RIGHT AREA */
+
+.booking-form-wrap{
+    position:relative;
+
+    padding:5px 0;
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        45px
+        220px;
+
+    column-gap:20px;
+
+    align-items:center;
+}
+
+
+/* BOOKING HEADING */
+
+.booking-form-wrap > .eyebrow{
+    grid-column:1;
+
+    align-self:end;
+
+    margin-bottom:8px;
+}
+
+.booking-form-wrap h2{
+    grid-column:1;
+
+    font-size:40px;
+
+    margin-bottom:0;
+}
+
+.booking-form-wrap > .heading-line{
+    grid-column:1;
+
+    justify-self:start;
+
+    margin:15px 0 25px;
+}
+
+
+/* ========================================
+   BOOKING FORM
+======================================== */
+
+.booking-form-wrap form{
+    grid-column:1;
+
+    width:100%;
+
+    max-width:650px;
+
+    display:grid;
+
+    gap:14px;
+}
+
+.form-row{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:12px;
+}
+
+.booking-form-wrap label{
+    display:grid;
+
+    gap:7px;
+
+    font-size:10px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    color:#716562;
+}
+
+.booking-form-wrap input,
+.booking-form-wrap select,
+.booking-form-wrap textarea{
+    width:100%;
+
+    border:
+        1px solid
+        #ded4d0;
+
+    border-radius:5px;
+
+    background:#fff;
+
+    padding:12px;
+
+    font-size:13px;
+
+    color:#2c2725;
+
+    outline:none;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.booking-form-wrap input:focus,
+.booking-form-wrap select:focus,
+.booking-form-wrap textarea:focus{
+    border-color:#c99b97;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(246,201,200,.15);
+}
+
+.booking-form-wrap textarea{
+    resize:vertical;
+}
+
+.booking-form-wrap form > .button{
+    width:fit-content;
+
+    min-width:120px;
+
+    margin-top:2px;
+}
+
+
+/* ========================================
+   OR DIVIDER
+======================================== */
+
+.booking-divider{
+    grid-column:2;
+
+    grid-row:1 / span 5;
+
+    position:relative;
+
+    width:45px;
+
+    height:300px;
+
+    border-left:
+        1px solid
+        #ded4d0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    align-self:center;
+
+    margin-left:5px;
+}
+
+.booking-divider span{
+    background:#fff;
+
+    padding:10px 7px;
+
+    font-size:11px;
+
+    color:#302b29;
+
+    position:relative;
+
+    z-index:2;
+
+    transform:translateX(-50%);
+}
+
+
+/* ========================================
+   WHATSAPP
+======================================== */
+
+.whatsapp-card{
+    grid-column:3;
+
+    grid-row:1 / span 5;
+
+    position:static;
+
+    width:220px;
+
+    text-align:center;
+
+    align-self:center;
+
+    justify-self:center;
+
+    padding:10px 0;
+}
+
+.whatsapp-icon{
+    font-size:55px;
+
+    color:var(--green);
+
+    margin-bottom:8px;
+}
+
+.whatsapp-card h3{
+    font-family:var(--serif);
+
+    font-size:22px;
+
+    line-height:1.15;
+
+    color:#171515;
+
+    margin-bottom:8px;
+}
+
+.whatsapp-card p{
+    font-size:11px;
+
+    line-height:1.6;
+
+    color:#716562;
+
+    margin:6px 0 17px;
+}
+
+.whatsapp-card .button{
+    width:100%;
+
+    padding:13px 15px;
+
+    white-space:nowrap;
+}
+
+
+/* ========================================
+   CONTACT
+======================================== */
+
+.contact{
+    background:#f8e9e7;
+
+    text-align:center;
+}
+
+.contact-card{
+    max-width:1050px;
+
+    margin:auto;
+}
+
+.contact h2{
+    font-size:44px;
+}
+
+.contact-card > p:not(.eyebrow){
+    color:#756967;
+
+    max-width:600px;
+
+    margin:17px auto 35px;
+}
+
+.contact-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:10px;
+}
+
+.contact-grid > div{
+    padding:18px;
+
+    background:
+        rgba(255,255,255,.55);
+
+    border-radius:5px;
+}
+
+.contact-label{
+    display:block;
+
+    text-transform:uppercase;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    color:#89726e;
+
+    margin-bottom:6px;
+}
+
+.contact-grid strong{
+    font-size:13px;
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+footer{
+    background:#111;
+
+    color:#fff;
+}
+
+.footer-main{
+    display:grid;
+
+    grid-template-columns:
+        1.1fr 1fr 1.4fr 1fr;
+
+    gap:35px;
+
+    padding:
+        55px 7%
+        40px;
+}
+
+.footer-main h4{
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    font-size:10px;
+
+    color:#e4c8c5;
+
+    margin-bottom:14px;
+}
+
+.footer-main p{
+    font-size:11px;
+
+    color:#c6bdbb;
+
+    margin:5px 0;
+}
+
+.footer-brand{
+    align-self:start;
+}
+
+.socials{
+    display:flex;
+
+    gap:16px;
+
+    font-size:27px;
+}
+
+.footer-script{
+    font:
+        25px
+        var(--script)!important;
+
+    color:#eeb5b2!important;
+
+    margin-top:15px!important;
+}
+
+.footer-bottom{
+    text-align:center;
+
+    border-top:
+        1px solid
+        #302c2b;
+
+    padding:15px;
+
+    font-size:10px;
+
+    color:#8f8785;
+}
+
+
+/* ========================================
+   BACK TO TOP
+======================================== */
+
+.back-top{
+    position:fixed;
+
+    right:22px;
+    bottom:20px;
+
+    width:40px;
+    height:40px;
+
+    border:
+        1px solid
+        #aaa;
+
+    border-radius:50%;
+
+    display:grid;
+
+    place-items:center;
+
+    background:#fff;
+
+    z-index:10;
+}
+
+
+/* ========================================
+   LIGHTBOX
+======================================== */
+
+.lightbox{
+    position:fixed;
+
+    inset:0;
+
+    background:
+        rgba(0,0,0,.9);
+
+    display:none;
+
+    place-items:center;
+
+    z-index:50;
+
+    padding:30px;
+}
+
+.lightbox.open{
+    display:grid;
+}
+
+.lightbox img{
+    max-width:90vw;
+
+    max-height:88vh;
+
+    border-radius:5px;
+}
+
+.lightbox-close{
+    position:absolute;
+
+    right:25px;
+    top:18px;
+
+    background:none;
+
+    color:#fff;
+
+    border:0;
+
+    font-size:40px;
+
+    cursor:pointer;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width:1000px){
+
+    /* HEADER */
+
+    .site-header{
+        gap:18px;
+
+        padding:0 5%;
+    }
+
+    .nav{
+        gap:17px;
+    }
+
+
+    /* SERVICES */
+
+    .service-grid{
+        grid-template-columns:
+            repeat(4,1fr);
+    }
+
+
+    /* BOOKING */
+
+    .booking{
+        grid-template-columns:1fr;
+
+        gap:35px;
+
+        padding-left:5%;
+        padding-right:5%;
+    }
+
+    .booking-photo{
+        min-height:320px;
+    }
+
+
+    /* BOOKING AREA */
+
+    .booking-form-wrap{
+        display:grid;
+
+        grid-template-columns:1fr;
+
+        gap:20px;
+
+        padding:0;
+    }
+
+
+    .booking-form-wrap > .eyebrow,
+    .booking-form-wrap h2,
+    .booking-form-wrap > .heading-line,
+    .booking-form-wrap form{
+        grid-column:1;
+    }
+
+
+    .booking-form-wrap form{
+        width:100%;
+
+        max-width:none;
+    }
+
+
+    /* OR */
+
+    .booking-divider{
+        grid-column:1;
+
+        grid-row:auto;
+
+        width:100%;
+
+        height:45px;
+
+        border-left:0;
+
+        border-top:
+            1px solid
+            #ded4d0;
+
+        margin:10px 0;
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+    }
+
+    .booking-divider span{
+        transform:none;
+
+        background:#fff;
+
+        padding:10px 12px;
+    }
+
+
+    /* WHATSAPP */
+
+    .whatsapp-card{
+        grid-column:1;
+
+        grid-row:auto;
+
+        position:static;
+
+        width:100%;
+
+        padding:10px 0 20px;
+
+        text-align:center;
+
+        justify-self:center;
+    }
+
+    .whatsapp-card .button{
+        width:auto;
+    }
+
+
+    /* CONTACT */
+
+    .contact-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width:700px){
+
+    /* HEADER */
+
+    .site-header{
+        height:68px;
+
+        padding:0 6%;
+    }
+
+    .menu-toggle{
+        display:block;
+
+        margin-left:auto;
+    }
+
+    .header-book{
+        display:none;
+    }
+
+
+    /* MOBILE NAV */
+
+    .nav{
+        display:none;
+
+        position:absolute;
+
+        left:0;
+        right:0;
+
+        top:68px;
+
+        background:#111;
+
+        flex-direction:column;
+
+        padding:10px 7%;
+
+        gap:0;
+    }
+
+    .nav.open{
+        display:flex;
+    }
+
+    .nav a{
+        padding:15px 0;
+    }
+
+    .nav a.active::after,
+    .nav a:hover::after{
+        bottom:7px;
+    }
+
+
+    /* HERO */
+
+    .hero{
+        min-height:650px;
+    }
+
+    .hero-content{
+        width:100%;
+
+        margin:0;
+
+        padding:
+            30px 7%;
+    }
+
+    .hero h1{
+        font-size:55px;
+    }
+
+    .hero h1 span{
+        font-size:65px;
+    }
+
+
+    /* HERO IMAGE */
+
+    .hero-image{
+        width:100%;
+
+        opacity:.28;
+    }
+
+    .hero-image::before{
+        background:
+            linear-gradient(
+                90deg,
+                #0d0d0d 0%,
+                rgba(13,13,13,.75) 40%,
+                rgba(13,13,13,.35) 100%
+            );
+    }
+
+
+    /* SIDE TEXT */
+
+    .hero-side-text{
+        display:none;
+    }
+
+
+    /* GENERAL */
+
+    .section{
+        padding:65px 6%;
+    }
+
+    .section-heading h2,
+    .contact h2{
+        font-size:37px;
+    }
+
+
+    /* SERVICES */
+
+    .service-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:24px;
+    }
+
+
+    /* GALLERY */
+
+    .gallery-grid{
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+
+    /* WHY TEE */
+
+    .why-inner{
+        padding:65px 7%;
+
+        display:block;
+    }
+
+    .why-copy{
+        width:100%;
+    }
+
+    .why-copy h2{
+        font-size:38px;
+    }
+
+    .why-grid{
+        gap:0;
+
+        margin-top:35px;
+    }
+
+    .why-grid > div{
+        padding:0 8px;
+    }
+
+    .why-grid strong{
+        font-size:11px;
+    }
+
+    .why-script{
+        display:none;
+    }
+
+
+    /* BOOKING */
+
+    .booking{
+        display:block;
+
+        padding-left:6%;
+        padding-right:6%;
+    }
+
+    .booking-photo{
+        min-height:280px;
+
+        margin-bottom:35px;
+    }
+
+
+    .booking-form-wrap{
+        display:block;
+
+        padding:0;
+    }
+
+    .booking-form-wrap > .eyebrow{
+        margin-bottom:8px;
+    }
+
+    .booking-form-wrap h2{
+        font-size:36px;
+    }
+
+    .booking-form-wrap > .heading-line{
+        margin:
+            15px 0 25px;
+    }
+
+
+    /* FORM */
+
+    .booking-form-wrap form{
+        display:grid;
+
+        grid-template-columns:1fr;
+
+        gap:14px;
+
+        max-width:none;
+    }
+
+    .form-row{
+        grid-template-columns:1fr;
+
+        gap:14px;
+    }
+
+    .booking-form-wrap input,
+    .booking-form-wrap select,
+    .booking-form-wrap textarea{
+        padding:13px;
+    }
+
+
+    /* OR */
+
+    .booking-divider{
+        width:100%;
+
+        height:45px;
+
+        border-left:0;
+
+        border-top:
+            1px solid
+            #ded4d0;
+
+        margin:30px 0;
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+    }
+
+    .booking-divider span{
+        transform:none;
+
+        padding:10px 12px;
+    }
+
+
+    /* WHATSAPP */
+
+    .whatsapp-card{
+        position:static;
+
+        width:100%;
+
+        padding:
+            10px 0 30px;
+
+        text-align:center;
+    }
+
+    .whatsapp-icon{
+        font-size:52px;
+
+        margin-bottom:8px;
+    }
+
+    .whatsapp-card h3{
+        font-size:23px;
+    }
+
+    .whatsapp-card p{
+        font-size:11px;
+
+        margin:
+            8px 0 18px;
+    }
+
+    .whatsapp-card .button{
+        width:auto;
+
+        display:inline-flex;
+    }
+
+
+    /* CONTACT */
+
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+
+    /* FOOTER */
+
+    .footer-main{
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .footer-main .footer-brand{
+        grid-column:1/-1;
+    }
+
+}
+
+
+/* ========================================
+   SMALL PHONES
+======================================== */
+
+@media (max-width:420px){
+
+    /* HERO */
+
+    .hero h1{
+        font-size:46px;
+    }
+
+    .hero h1 span{
+        font-size:55px;
+    }
+
+    .hero-description{
+        font-size:14px;
+    }
+
+
+    /* SERVICES */
+
+    .service-grid{
+        grid-template-columns:1fr;
+    }
+
+
+    /* GALLERY */
+
+    .gallery-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+
+    /* WHY TEE */
+
+    .why-grid{
+        grid-template-columns:1fr;
+
+        gap:25px;
+    }
+
+    .why-grid > div{
+        border-right:0;
+
+        border-bottom:
+            1px solid
+            rgba(255,255,255,.25);
+
+        padding-bottom:20px;
+    }
+
+
+     /* ========================================
+   BOOKING PHOTO
+======================================== */
+
+.booking-photo{
+    width:100%;
+    aspect-ratio:3 / 2;
+
+    overflow:hidden;
+
+    border-radius:5px;
+
+    background:#f8e4e1;
+}
+
+.booking-photo img{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+    object-position:center center;
+
+    display:block;
+}
+
+
+    /* FOOTER */
+
+    .footer-main{
+        grid-template-columns:1fr;
+    }
+
+}
